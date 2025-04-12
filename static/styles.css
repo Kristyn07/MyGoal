@@ -1,7 +1,11 @@
+
+
 /*Light mode Color
 */
+
 .my-goal{
     color:#70D48F;
+    
 }
 .my-sidebar{
     height: 100vh;
@@ -10,25 +14,39 @@
    
 }
 
+.my-active{
+    background-color: #70D48F;
+    
+}
+
+.my-diactive{
+    background-color: None;
+   
+}
+li{
+    color:#1F2834;
+}
+
 html {
   margin: 0;
   padding: 0;
 }
 
 body{
+    
     position: relative;
     display: flex;
     flex-wrap: nowrap;
 }
 
 main{
-    min-height: 100vh;
+    height: 100vh; /*100vh*/
     width: 100%;
     background-color: #70D48F;
 
 }
 .my-header{
-    background-color: red;
+    background-color: pink;
     min-height: 10vh;
     width: 100%;
 }
@@ -39,3 +57,4 @@ main{
     height: 16px;
     margin-right: 10px;
 }
+
