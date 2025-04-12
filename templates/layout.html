@@ -31,55 +31,71 @@
                   <span class="fs-5 my-goal">My Goal</span>
                 </a>
                 <hr>
-                <ul class="nav nav-pills flex-column mb-auto">
+                <!-- <ul class="nav nav-pills flex-column mb-auto">
                     <li >
-                        <a href="/" class="nav-link link-dark my-active" aria-current="page">
-                            <i class="bi bi-clipboard-data"></i> Dashboard
+                        <a href="/" class="nav-link link-dark {{ 'my-active' if request.endpoint == 'index' else '' }}" aria-current="page">
+                            <i class="bi {{ 
+                                'bi-clipboard-data-fill' if request.endpoint == 'index' else 'bi-clipboard-data' }}"></i> Dashboard
                         </a>
                     </li>
                     <li>
-                        <a href="/important" class="nav-link link-dark">
-                            <i class="bi bi-star"></i> Important
+                        <a href="/important" class="nav-link link-dark {{ 'my-active' if request.endpoint == 'important' else '' }}">
+                            <i class="bi {{ 'bi-star-fill' if request.endpoint == 'important' else 'bi-star' }}"></i> Important
                         </a>
                     </li>
                     <li>
-                        <a href="/notes" class="nav-link link-dark">
+                        <a href="/notes" class="nav-link link-dark {{ 'my-active' if request.endpoint == 'notes' else '' }}">
                             <i class="bi bi-journals"></i> Notes
                         </a>
                     </li>
                     <li>
-                        <a href="/schedule" class="nav-link link-dark">
+                        <a href="/schedule" class="nav-link link-dark {{ 'my-active' if request.endpoint == 'schedule' else '' }}">
                             <i class="bi bi-calendar-minus"></i> Schedule
                         </a>
                     </li>
                     <hr>
                     <li>
-                        <a href="/todo" class="nav-link link-dark">
+                        <a href="/todo" class="nav-link link-dark {{ 'my-active' if request.endpoint == 'todo' else '' }}">
                             <i class="bi bi-folder2"></i> Todo
                         </a>
                     </li>
                     <li>
-                        <a href="/ongoing" class="nav-link link-dark">
+                        <a href="/ongoing" class="nav-link link-dark {{ 'my-active' if request.endpoint == 'ongoing' else '' }}">
                             <i class="bi bi-folder2"></i> Ongoing
                         </a>
                     </li>
                     <li>
-                        <a href="/completed" class="nav-link link-dark">
+                        <a href="/completed" class="nav-link link-dark {{ 'my-active' if request.endpoint == 'completed' else '' }}">
                             <i class="bi bi-folder2"></i> Completed
                         </a>
                     </li>
                     <hr>
                     <li>
-                        <a href="/archieve" class="nav-link link-dark">
+                        <a href="/archieve" class="nav-link link-dark {{ 'my-active' if request.endpoint == 'archieve' else '' }}">
                             <i class="bi bi-folder2"></i> Archieve
                         </a>
                     </li>
                     <li>
-                        <a href="/trash" class="nav-link link-dark">
+                        <a href="/trash" class="nav-link link-dark {{ 'my-active' if request.endpoint == 'trash' else '' }}">
                         <i class="bi bi-trash"></i> Trash
                         </a>
                     </li>
+                </ul> -->
+
+                <ul class="nav nav-pills flex-column mb-auto">
+                    {% for item in NAV_ITEMS %}
+                        <li>
+                            <a href="{{ item.url }}" class="nav-link link-dark {{ 'my-active' if request.endpoint == item.endpoint else '' }}">
+                                <i class="bi {{ item.icon if request.endpoint != item.endpoint else item.icon_fill }}"></i> {{ item.label }}
+                            </a>
+                        </li>
+                        {% if loop.index == 4 or loop.index == 7 %}
+                            <hr>
+                        {% endif %}
+                    {% endfor %}
                 </ul>
+                
+                
             </div>
             
             <main>
