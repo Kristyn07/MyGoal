@@ -5,7 +5,7 @@
 
 .my-goal{
     color:#70D48F;
-    
+    font-weight:bold;
 }
 .my-sidebar{
     height: 100vh;
@@ -40,15 +40,40 @@ body{
 }
 
 main{
-    height: 100vh; /*100vh*/
+    height: 100vh;
     width: 100%;
-    background-color: #70D48F;
-
 }
-.my-header{
-    background-color: pink;
-    min-height: 10vh;
+.my-header {
+    display: flex;
+    border-bottom: black solid 1px;
+    min-height: 70px;
     width: 100%;
+    align-items: center;
+    padding: 0 10px;
+    justify-content: space-between;
+}
+
+.my-search-bar {
+    
+    width: 360px;
+    height: 40px;
+    display: flex;
+    align-items: center;
+    border-radius: 50px;
+    background-color: #e9edf2;
+}
+
+.transparent-input{
+    background-color: transparent;
+    border: none;
+}
+
+button {
+    background-color: transparent;
+    border: none;
+    color: #0d6efd;
+    font-size: 0.7rem;
+    padding: 0 10px;
 }
 
 /*BT*/
@@ -58,3 +83,21 @@ main{
     margin-right: 10px;
 }
 
+.todo-form {
+    background-color: #70D48F;
+    display: flex; /* display: flex; none */
+    flex-direction: column;
+    align-items: stretch;
+    text-align: center;
+    padding: 10px;
+    margin: 0;
+}
+
+.todo-form input {
+    border-radius: 5px; 
+    
+}
+
+.row{
+    margin: 10px 0px;
+}

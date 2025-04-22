@@ -1,5 +1,49 @@
 {% extends "layout.html" %}
 
 {% block main %}
-    This is the body of Todo
+
+<input type="submit" value="Create A Goal" id="create-goal" class="btn btn-primary w-100">
+
+
+<div class="todo-form">
+    
+    <h5 class="align-items-center">Create a Goal</h5>
+    <form action="/" method="post">
+        <div class="row">
+            <div class="col-12 col-lg-4"> 
+                <input name="task_name" class="form-control" type="text" placeholder="Task Name" required>
+            </div>
+            
+            <div class="col-12 col-lg-4">
+                <select class="form-control" id="task_priority" name="task_priority">
+                    <option value="todo">To-do</option>
+                    <option value="ongoing">Ongoing</option>
+                    <option value="completed">Completed</option>
+                </select>
+            </div>
+            <div class="col-12 col-lg-4 ">
+                <input name="due_date" class="form-control" type="date" required>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-12 form-group">
+                <label for="task_description">Description</label>
+                <textarea class="form-control" id="task_description" name="task_description" rows="3" required></textarea>
+            </div>
+        </div>
+        
+        <div class="row justify-content-center">
+            <div class="form-group">
+                <input type="submit" value="Add Goal" class="btn btn-primary">
+            </div>
+        </div>
+        
+    </form>
+    
+    
+</div>
+
+
 {% endblock %}
+
+

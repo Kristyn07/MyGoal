@@ -19,7 +19,7 @@
         <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700&display=swap" rel="stylesheet">
 
         <link href="/static/styles.css" rel="stylesheet">
-
+        <script src="/static/script.js"></script>
         <title> My Goal </title>
 
     </head>
@@ -28,60 +28,9 @@
         <!--SIDEBAR-->
             <div class="d-flex flex-column flex-shrink-0 p-3 my-sidebar" style="width: 280px;">
                 <a href="/" class="d-flex align-items-center mb-3 mb-md-0 me-md-auto  text-decoration-none">
-                  <span class="fs-5 my-goal">My Goal</span>
+                  <span class="fs-5 my-goal">MY GOAL</span>
                 </a>
-                <hr>
-                <!-- <ul class="nav nav-pills flex-column mb-auto">
-                    <li >
-                        <a href="/" class="nav-link link-dark {{ 'my-active' if request.endpoint == 'index' else '' }}" aria-current="page">
-                            <i class="bi {{ 
-                                'bi-clipboard-data-fill' if request.endpoint == 'index' else 'bi-clipboard-data' }}"></i> Dashboard
-                        </a>
-                    </li>
-                    <li>
-                        <a href="/important" class="nav-link link-dark {{ 'my-active' if request.endpoint == 'important' else '' }}">
-                            <i class="bi {{ 'bi-star-fill' if request.endpoint == 'important' else 'bi-star' }}"></i> Important
-                        </a>
-                    </li>
-                    <li>
-                        <a href="/notes" class="nav-link link-dark {{ 'my-active' if request.endpoint == 'notes' else '' }}">
-                            <i class="bi bi-journals"></i> Notes
-                        </a>
-                    </li>
-                    <li>
-                        <a href="/schedule" class="nav-link link-dark {{ 'my-active' if request.endpoint == 'schedule' else '' }}">
-                            <i class="bi bi-calendar-minus"></i> Schedule
-                        </a>
-                    </li>
-                    <hr>
-                    <li>
-                        <a href="/todo" class="nav-link link-dark {{ 'my-active' if request.endpoint == 'todo' else '' }}">
-                            <i class="bi bi-folder2"></i> Todo
-                        </a>
-                    </li>
-                    <li>
-                        <a href="/ongoing" class="nav-link link-dark {{ 'my-active' if request.endpoint == 'ongoing' else '' }}">
-                            <i class="bi bi-folder2"></i> Ongoing
-                        </a>
-                    </li>
-                    <li>
-                        <a href="/completed" class="nav-link link-dark {{ 'my-active' if request.endpoint == 'completed' else '' }}">
-                            <i class="bi bi-folder2"></i> Completed
-                        </a>
-                    </li>
-                    <hr>
-                    <li>
-                        <a href="/archieve" class="nav-link link-dark {{ 'my-active' if request.endpoint == 'archieve' else '' }}">
-                            <i class="bi bi-folder2"></i> Archieve
-                        </a>
-                    </li>
-                    <li>
-                        <a href="/trash" class="nav-link link-dark {{ 'my-active' if request.endpoint == 'trash' else '' }}">
-                        <i class="bi bi-trash"></i> Trash
-                        </a>
-                    </li>
-                </ul> -->
-
+                <br>
                 <ul class="nav nav-pills flex-column mb-auto">
                     {% for item in NAV_ITEMS %}
                         <li>
@@ -93,13 +42,40 @@
                             <hr>
                         {% endif %}
                     {% endfor %}
-                </ul>
-                
-                
-            </div>
+                </ul> 
+            </div> 
             
             <main>
-                <div class="my-header">Head</div>
+                <div class="my-header ">
+                    <div class="my-search-bar">
+                      <form class="d-flex w-100">
+                        <input
+                          type="search"
+                          class="form-control rounded-start-pill transparent-input"
+                          placeholder="Search"
+                          aria-label="Search"
+                        >
+                        <button class="btn rounded-end-pill" type="submit">
+                          <i class="bi bi-search"></i>
+                        </button>
+                      </form>
+                    </div>
+                  
+                  
+                    <div class="my-theme-mode">
+                        <div class="dropdown" data-bs-theme="light">
+                            <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButtonLight" data-bs-toggle="dropdown" aria-expanded="false">
+                              Theme
+                            </button>
+                            <ul class="dropdown-menu" aria-labelledby="dropdownMenuButtonLight">
+                              <li><a class="dropdown-item" href="#">Light</a></li>
+                              <li><a class="dropdown-item" href="#">Dark</a></li>
+                              <li><a class="dropdown-item active" href="#">Auto</a></li>
+                            </ul>
+                          </div>
+                    </div>                                        
+                </div>
+            
                 {% block main %}
         
 

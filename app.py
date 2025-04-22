@@ -1,6 +1,7 @@
 from flask import Flask, flash, jsonify, redirect, render_template, request, session
 app = Flask(__name__)
 
+
 NAV_ITEMS = [
     {"endpoint": "index", "url": "/", "icon": "bi-clipboard-data", "icon_fill": "bi-clipboard-data-fill", "label": "Dashboard"},
     {"endpoint": "important", "url": "/important", "icon": "bi-star", "icon_fill": "bi-star-fill", "label": "Important"},
@@ -32,9 +33,27 @@ def notes():
 def schedule():
     return render_template("schedule.html", NAV_ITEMS=NAV_ITEMS)
 
-@app.route("/todo")
+@app.route("/todo",methods=["GET", "POST"])
 def todo():
-    return render_template("todo.html", NAV_ITEMS=NAV_ITEMS)
+     if request.method == "POST":
+        # name = request.form.get("name")
+        # month = request.form.get("month")
+        # day = request.form.get("day")
+        # if not name:
+        #     return redirect("/")
+        # if not month:
+        #     return redirect("/")
+        # if not day:
+        #     return redirect("/")
+
+        # db.execute("INSERT INTO birthdays (name, month, day) VALUES(?,?,?)", name, month, day)
+        # return redirect("/")
+        return render_template("todo.html", NAV_ITEMS=NAV_ITEMS)
+     else:
+        # TODO: Display the entries in the database on index.html
+        # birthdays = db.execute("SELECT * FROM birthdays")
+        # return render_template("todo.html", birthdays=birthdays)
+        return render_template("todo.html", NAV_ITEMS=NAV_ITEMS)
 
 @app.route("/ongoing")
 def ongoing():
